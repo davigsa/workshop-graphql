@@ -61,6 +61,22 @@ Query: {
 
 Do ponto de vista do cliente, as operações mais comuns a serem executadas pelo GraphQL provavelmente serão as **queries** e **mutations**. Quanto aos termos do modelo de _criação, leitura, atualização e exclusão_ (CRUD), uma **query** seria equivalente a uma _leitura_. Todas as outras operações _(criação, atualização e exclusão)_ são processadas pelas **mutations**.
 
+#### Utilização:
+
+Basicamente nós podemos utilizar o GraphQL de três formas, pois é, quem pensou que ele só servia para a criação de uma API básica estava errado.
+
+1. Implementação simples de GraphQL com uma base de dados
+![Primeira](images/1.png)
+Implementação básica de uma API em GraphQL onde o usamos como um servidor para se comunicar e expor dados de uma base de dados.[^1]
+
+2. Implementação do GraphQL com micro-serviços, APIs de terceiros e uma API legado
+![Segunda](images/2.png)
+Implementação do GraphQL com outras APIs, no nosso caso com uma API legado, um micro-serviço e uma outra API de terceiros, utilizando o GraphQL deste jeito nós garantimos uma padronização dos dados e fora que agora o frontend (cliente) vai possuir apenas um endpoint para consumir.[^2]
+
+3. Implementação do GraphQL consumindo uma base de dados e mais 3 APIs
+![Terceira](images/3.png)
+Implementação do GraphQL consumindo uma base de dados (exatamente a mesma implementação que a primeira apresentada a cima) e realizando a integração com mais 3 três APIs (como a ultima implementação que vimos acima), esta implementação é conhecida como “Abordagem Híbrida”.[^3]
+
 #### Solução custo benefício:
 
 1. **Requisição**
