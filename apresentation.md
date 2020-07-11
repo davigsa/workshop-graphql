@@ -62,36 +62,33 @@ Query: {
 Do ponto de vista do cliente, as operações mais comuns a serem executadas pelo GraphQL provavelmente serão as **queries** e **mutations**. Quanto aos termos do modelo de _criação, leitura, atualização e exclusão_ (CRUD), uma **query** seria equivalente a uma _leitura_. Todas as outras operações _(criação, atualização e exclusão)_ são processadas pelas **mutations**.
 
 #### Solução custo benefício:
-<div style="display: flex;">
-    <div>
-        1. Requisição
-        ```
-        query {
-            getAllUsers {
-                _id
-                name
-                email
-            }
-        }
-        ``` 
-    </div>
-   <div>
-      1. Resposta
-      ```
+
+1. Requisição
+```
+query {
+    getAllUsers {
+        _id
+        name
+        email
+    }
+}
+``` 
+
+2. Resposta
+```
+{
+  "data": {
+    "getAllUsers": [
       {
-        "data": {
-          "getAllUsers": [
-            {
-              "_id": "5f09d33efe3b940e792bf3b1",
-              "name": "Nome",
-              "email": "nome@test.com"
-            }
-          ]
-        }
+        "_id": "5f09d33efe3b940e792bf3b1",
+        "name": "Nome",
+        "email": "nome@test.com"
       }
-      ```
-   </div>
-</div>
+    ]
+  }
+}
+```
+
 
 Essa consulta invoca uma função do resolver mediante o campo allUsers e retorna apenas os valores id, name e email. Se houver várias pessoas no sistema (assumindo que allUsers retorna um banco de usuários, por exemplo), isso deve acontecer em uma única chamada de rede. Embora os projetos possam variar, em sistemas tradicionais isso geralmente é modelado em chamadas de rede separadas para cada publicação. Essa redução em chamadas de rede reduz os requisitos de largura de banda e, portanto, economiza a vida útil da bateria e ciclos de CPU consumidos por aplicativos cliente.
 
