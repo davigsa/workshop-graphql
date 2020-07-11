@@ -63,7 +63,7 @@ Do ponto de vista do cliente, as operações mais comuns a serem executadas pelo
 
 #### Solução custo benefício:
 
-1. Requisição
+1. **Requisição**
 ```
 query {
     getAllUsers {
@@ -74,7 +74,7 @@ query {
 }
 ``` 
 
-2. Resposta
+2. **Resposta**
 ```
 {
   "data": {
@@ -114,6 +114,7 @@ Finalmente, o sistema de tipo fornece mecanismos poderosos para paginação, rel
 * O GraphQL direciona muito do trabalho de consulta de dados para o servidor, o que aumenta a complexidade para os desenvolvedores.
 * O armazenamento em cache é mais complexo do que na arquitetura REST.
 
+---
 Se você ainda está se questionando sobre a praticidade do graphql, mostrarei na prática dois códigos diferentes e **SIMPLES** que realizam as mesmas tarefas. Um em modelo [Rest](test-rest/index.js) e outro utilizando [graphql](test-graphql/index.js/index.js). Os dois foram desenvolvidos por mim em node.js.
 Depois mostrarei um código que realiza tarefas mais complexas, como consultar consultar uma API externa e gravar dados em um banco de dados NoSQL.
 
