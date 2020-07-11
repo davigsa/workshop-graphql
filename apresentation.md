@@ -1,17 +1,18 @@
 # WORKSHOP - GRAPHQL IN A NUTSHELL 🌰
-*O que é? Onde mora? O que come?*
+
+_O que é? Onde mora? O que come?_
 
 ## Apresentação da "problemática":
 
 Imagino que muitos aqui já estejam familiarizados com o conceito de API Rest, entretanto, para os que não estão, vou fazer uma breve explicação.
 
-Atualmente temos diversas aplicações serem feitas única e exclusivamente desenvolvidas para rodar na internet, sendo assim *"consumidas"* por navegadores em desktops, notebooks e dispositos móveis. Nesse contexto, as empresas sentiram a necessidade de alimentar essas aplicações (que iam desde sistemas de estoque, contabilidade, ERP à redes sociais) com dados a todo momento. 
+Atualmente temos diversas aplicações serem feitas única e exclusivamente desenvolvidas para rodar na internet, sendo assim _"consumidas"_ por navegadores em desktops, notebooks e dispositos móveis. Nesse contexto, as empresas sentiram a necessidade de alimentar essas aplicações (que iam desde sistemas de estoque, contabilidade, ERP à redes sociais) com dados a todo momento.
 Com essas duas problemáticas em mente (sofwares sendo acessados pela Web e empresas precisando alimentar seus sistemas) começou a se pensar em algum tipo de soluçao de software que permitisse essa conversa entre sistema e usuários.
 Durante anos, diversas alternativas surgiram e, de uma forma geral, essas aplicações ficaram conhecidas como **APIs**.
 
->O acrônimo **API** que provém do inglês **Application Programming Interface** (Em português, significa Interface de Programação de Aplicações), trata-se de um conjunto de rotinas e padrões estabelecidos e documentados por uma aplicação A, para que outras aplicações consigam utilizar as funcionalidades desta aplicação A, sem precisar conhecer detalhes da implementação do software.
+> O acrônimo **API** que provém do inglês **Application Programming Interface** (Em português, significa Interface de Programação de Aplicações), trata-se de um conjunto de rotinas e padrões estabelecidos e documentados por uma aplicação A, para que outras aplicações consigam utilizar as funcionalidades desta aplicação A, sem precisar conhecer detalhes da implementação do software.
 
-Tendo falado sobre a parte de API, explicarei sobre o Rest. 
+Tendo falado sobre a parte de API, explicarei sobre o Rest.
 O **REST** ou **Representational State Transfer** foi definido nos anos 2000 e é o conceito até então mais utilizado para a criação de web services. Esse conceito utiliza os métodos HTTP como GET, POST, PUT, DELETE entre outros para determinar uma operação que quem está enviando deseja fazer.
 Para que isso ocorra, ele trabalha com esquema de rotas, ou seja, para cada operação você precisa designar uma rota específica (uma rota nada mais é do que um caminho) para que ela ocorra.
 
@@ -42,13 +43,14 @@ O conceito criado é muito conhecido como uma linguagem de consulta para APIs, i
     }
 }
 ```
+
 <small>Exemplo de query para buscar usuários e retornar seus dados</small>
 
-Se você ainda está se questionando sobre a praticidade do graphql, mostrarei na prática dois códigos diferentes e **SIMPLES** que realizam as mesmas tarefas. Um em modelo [Rest](testExpress/index.js) e outro utilizando [graphql](testGraphql/index.js). Os dois foram desenvolvidos por mim em node.js.
+Se você ainda está se questionando sobre a praticidade do graphql, mostrarei na prática dois códigos diferentes e **SIMPLES** que realizam as mesmas tarefas. Um em modelo [Rest](test-rest/index.js) e outro utilizando [graphql](test-graphql/index.js/index.js). Os dois foram desenvolvidos por mim em node.js.
 Depois mostrarei um código que realiza tarefas mais complexas, como consultar consultar uma API externa e gravar dados em um banco de dados NoSQL.
 
-
 ## Referências:
+
 1. [Becode](https://becode.com.br/o-que-e-api-rest-e-restful/)
 2. [Medium](https://medium.com/@jcc0xp/graphql-vs-rest-pensando-de-uma-forma-inovadora-a89c0d514a0d)
 3. [Graphql](https://graphql.org/)

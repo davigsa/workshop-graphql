@@ -1,50 +1,74 @@
+require("../config/db");
 const { ApolloServer, gql } = require("apollo-server");
+const User = require("../models/User");
 
-const db = [
-  { id: 0, name: "andre", email: "andre@test.com" },
-  { id: 1, name: "dudu", email: "dudu@test.com" },
-  { id: 2, name: "davi", email: "davi@test.com" },
-];
-
+//Declarando types grapqhql
 const typeDefs = gql`
   type User {
-    id: ID
+    _id: ID
     name: String
     email: String
   }
 
   type Query {
     getAllUsers: [User!]!
-    getUserByName(name: String!): User!
+    getUserById(id: ID!): User!
   }
 
   type Mutation {
     createUser(name: String!, email: String!): User!
-    deleteUserByName(name: String!): [User!]!
+    deleteUserById(id: ID!): [User!]!
+    updateUserById(id: ID!, name: String!, email: String!): User!
   }
 `;
 
+//Criando resolvers graphql
 const resolvers = {
   Query: {
-    getAllUsers: () => db,
-    getUserByName(_, args) {
-      return db.find((user) => user.name === args.name);
+    getAllUsers: async function () {
+      try {
+        return await User.find();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    getUserById: async function (_, args) {
+      try {
+        return await User.findById(args.id);
+      } catch (e) {
+        console.error(e);
+      }
     },
   },
 
   Mutation: {
-    createUser(_, args) {
-      const newUser = {
-        id: db.length,
-        name: args.name,
-        email: args.email,
-      };
-      db.push(newUser);
-      return newUser;
+    createUser: async function (_, args) {
+      try {
+        return await User.create({
+          name: args.name,
+          email: args.email,
+        });
+      } catch (e) {
+        console.error(e);
+      }
     },
-    deleteUserByName(_, args) {
-      db = db.filter((user) => user.name !== args.name);
-      return db;
+    deleteUserById: async function (_, args) {
+      try {
+        await User.findByIdAndDelete(args.id);
+        return User.find();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    updateUserById: async function (_, args) {
+      try {
+        return await User.findByIdAndUpdate(args.id, {
+          name: args.name,
+          email: args.email,
+        });
+      } catch (e) {
+        console.error(e);
+      }
     },
   },
 };
@@ -53,4 +77,4 @@ const server = new ApolloServer({ typeDefs, resolvers });
 
 server
   .listen()
-  .then(({ url }) => console.log(`Graphql server is running at ${url}`));
+  .then(({ url }) => console.log(`Graphql server is running in ${url}`));
