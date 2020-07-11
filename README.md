@@ -1,4 +1,4 @@
-# <span style="color:'#E10098'">WORKSHOP - ![GraphQL Logo](https://graphql.org/img/logo.svg) **GRAPHQL** IN A NUTSHELL</span>
+# WORKSHOP - GRAPHQL IN A NUTSHELL
 
 _O que é? Onde mora? O que come?_
 
