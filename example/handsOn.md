@@ -149,7 +149,7 @@ const resolvers = {
 5. E se por acaso a gente quisesse retornar o nome completo do user sem mexer no banco?
 
 - Adicionamos o campo **fullName** nos tipos, sendo que ele retorna uma String;
-- Criamos o resolver para User e nele inserimos como resolver o fullName, ou seja, uma função que retorna pelo **contexto** (o underline que ainda nao tinhamos usado) o firstName e o lastName;
+- Criamos o resolver para User e nele inserimos como resolver o fullName, ou seja, uma função que retorna pelo **objeto** (o underline que ainda nao tinhamos usado) o firstName e o lastName;
 - Agora se quisermos retornar o **fullName** de um User, nós podemos;
 
 ```
@@ -172,9 +172,9 @@ const resolvers = {
 
 6. Apresentar o problema do author ao requisitar pelo _getAllPosts_
 
-- Resolvemos esse problema do mesmo jeito que resolvemos o fullName, utilizando os **contextos**
+- Resolvemos esse problema do mesmo jeito que resolvemos o fullName, utilizando os **objetos**
 - Adicionamos o Post no resolver e vamos resolver o campo author;
-- Author utiliza o contexto do post, que é uma função que retorna do model de Usuário pelo Id os campos do User. (No caso, o id é igual ao post.author, pq ele recebe o ID do usuario)
+- Author utiliza o objeto post, que é uma função que retorna do model de Usuário pelo Id os campos do User. (No caso, o id é igual ao post.author, pq ele recebe o ID do usuario)
 
 ```
 const resolvers = {
