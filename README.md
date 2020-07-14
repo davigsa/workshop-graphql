@@ -34,8 +34,8 @@ O conceito criado é muito conhecido como uma linguagem de consulta para APIs, i
 
 ### Estrutura:
 
-Os desenvolvedores de API usam o GraphQL para criar um **esquema (schema)** para descrever todos os dados disponíveis para consulta pelos clientes por meio do serviço em questão. 
-Um esquema do GraphQL é composto por tipos de objeto, que definem os objetos que podem ser solicitados e quais campos eles terão. 
+Os desenvolvedores de API usam o GraphQL para criar um **esquema (schema)** para descrever todos os dados disponíveis para consulta pelos clientes por meio do serviço em questão.
+Um esquema do GraphQL é composto por tipos de objeto, que definem os objetos que podem ser solicitados e quais campos eles terão.
 
 ```
 type User {
@@ -66,20 +66,21 @@ Do ponto de vista do cliente, as operações mais comuns a serem executadas pelo
 Basicamente nós podemos utilizar o GraphQL de três formas, pois é, quem pensou que ele só servia para a criação de uma API básica estava errado.
 
 1. Implementação simples de GraphQL com uma base de dados
-![Primeira](images/1.png)
-Implementação básica de uma API em GraphQL onde o usamos como um servidor para se comunicar e expor dados de uma base de dados.[^1]
+   ![Primeira](images/1.png)
+   Implementação básica de uma API em GraphQL onde o usamos como um servidor para se comunicar e expor dados de uma base de dados.[^1]
 
 2. Implementação do GraphQL com micro-serviços, APIs de terceiros e uma API legado
-![Segunda](images/2.png)
-Implementação do GraphQL com outras APIs, no nosso caso com uma API legado, um micro-serviço e uma outra API de terceiros, utilizando o GraphQL deste jeito nós garantimos uma padronização dos dados e fora que agora o frontend (cliente) vai possuir apenas um endpoint para consumir.[^2]
+   ![Segunda](images/2.png)
+   Implementação do GraphQL com outras APIs, no nosso caso com uma API legado, um micro-serviço e uma outra API de terceiros, utilizando o GraphQL deste jeito nós garantimos uma padronização dos dados e fora que agora o frontend (cliente) vai possuir apenas um endpoint para consumir.[^2]
 
 3. Implementação do GraphQL consumindo uma base de dados e mais 3 APIs
-![Terceira](images/3.png)
-Implementação do GraphQL consumindo uma base de dados (exatamente a mesma implementação que a primeira apresentada a cima) e realizando a integração com mais 3 três APIs (como a ultima implementação que vimos acima), esta implementação é conhecida como “Abordagem Híbrida”.[^3]
+   ![Terceira](images/3.png)
+   Implementação do GraphQL consumindo uma base de dados (exatamente a mesma implementação que a primeira apresentada a cima) e realizando a integração com mais 3 três APIs (como a ultima implementação que vimos acima), esta implementação é conhecida como “Abordagem Híbrida”.[^3]
 
 #### Solução custo benefício:
 
 1. **Requisição**
+
 ```
 query {
     getAllUsers {
@@ -88,9 +89,10 @@ query {
         email
     }
 }
-``` 
+```
 
 2. **Resposta**
+
 ```
 {
   "data": {
@@ -105,7 +107,6 @@ query {
 }
 ```
 
-
 Essa consulta invoca uma função do resolver mediante o campo allUsers e retorna apenas os valores id, name e email. Se houver várias pessoas no sistema (assumindo que allUsers retorna um banco de usuários, por exemplo), isso deve acontecer em uma única chamada de rede. Embora os projetos possam variar, em sistemas tradicionais isso geralmente é modelado em chamadas de rede separadas para cada publicação. Essa redução em chamadas de rede reduz os requisitos de largura de banda e, portanto, economiza a vida útil da bateria e ciclos de CPU consumidos por aplicativos cliente.
 
 Esses recursos agilizam muito a prototipagem de novos aplicativos e a modificação de aplicativo existentes. Um benefício disso é que os requisitos de dados do aplicativo estão localizados no aplicativo com o código da interface do usuário da sua linguagem de programação escolhida. Isso permite que o cliente e as equipes de back-end trabalhem de maneira independente, em vez de codificar a modelagem de dados em implementações de back-end.
@@ -116,23 +117,23 @@ Finalmente, o sistema de tipo fornece mecanismos poderosos para paginação, rel
 
 #### Vantagens:
 
-* Os esquemas definem uma única "fonte da verdade" em uma aplicação que usa o GraphQL. É uma maneira da organização federar a API inteira.
-* As chamadas do GraphQL são processadas em uma única transmissão com ida e volta. Os clientes recebem exatamente o que solicitam, sem mais dados do que o necessário (overfetching). Isso, se analisarmos em relação ao uso conjunto de alguma ferramenta pay per use, como AWS, pode significar um menor custo.
-* Os tipos de dados são bem definidos, o que reduz as falhas de comunicação entre o cliente e o servidor. 
-* O GraphQL é introspectivo. Um cliente pode solicitar uma lista de tipos de dados disponíveis. Isso é ideal para gerar documentação automaticamente.
-* O GraphQL permite evoluir a API de uma aplicação sem prejudicar as consultas existentes.
-* Há muitas extensões open source disponíveis para o GraphQL e várias oferecem funcionalidades que não estão presentes nas APIs REST.
-* O GraphQL não determina uma arquitetura de aplicação específica. Ele pode ser introduzido em uma API REST existente e funciona com as ferramentas de gerenciamento de API que você já tem.
+- Os esquemas definem uma única "fonte da verdade" em uma aplicação que usa o GraphQL. É uma maneira da organização federar a API inteira.
+- As chamadas do GraphQL são processadas em uma única transmissão com ida e volta. Os clientes recebem exatamente o que solicitam, sem mais dados do que o necessário (overfetching). Isso, se analisarmos em relação ao uso conjunto de alguma ferramenta pay per use, como AWS, pode significar um menor custo.
+- Os tipos de dados são bem definidos, o que reduz as falhas de comunicação entre o cliente e o servidor.
+- O GraphQL é introspectivo. Um cliente pode solicitar uma lista de tipos de dados disponíveis. Isso é ideal para gerar documentação automaticamente.
+- O GraphQL permite evoluir a API de uma aplicação sem prejudicar as consultas existentes.
+- Há muitas extensões open source disponíveis para o GraphQL e várias oferecem funcionalidades que não estão presentes nas APIs REST.
+- O GraphQL não determina uma arquitetura de aplicação específica. Ele pode ser introduzido em uma API REST existente e funciona com as ferramentas de gerenciamento de API que você já tem.
 
 #### Desvantagens:
 
-* Desenvolvedores acostumados com as APIs REST terão que enfrentar uma certa curva de aprendizado com o GraphQL.
-* O GraphQL direciona muito do trabalho de consulta de dados para o servidor, o que aumenta a complexidade para os desenvolvedores.
-* O armazenamento em cache é mais complexo do que na arquitetura REST.
+- Desenvolvedores acostumados com as APIs REST terão que enfrentar uma certa curva de aprendizado com o GraphQL.
+- O GraphQL direciona muito do trabalho de consulta de dados para o servidor, o que aumenta a complexidade para os desenvolvedores.
+- O armazenamento em cache é mais complexo do que na arquitetura REST.
 
 ---
-Se você ainda está se questionando sobre a praticidade do graphql, mostrarei na prática dois códigos diferentes e **SIMPLES** que realizam as mesmas tarefas. Um em modelo [Rest](test-rest/index.js) e outro utilizando [graphql](test-graphql/index.js/index.js). Os dois foram desenvolvidos por mim em node.js.
-Depois mostrarei um código que realiza tarefas mais complexas, como consultar consultar uma API externa e gravar dados em um banco de dados NoSQL.
+
+Se você ainda está se questionando sobre a praticidade do graphql, mostrarei na prática dois códigos diferentes e **SIMPLES** que realizam as mesmas tarefas. Um em modelo [Rest](test-rest/index.js) e outro utilizando [graphql](test-graphql/index.js/index.js). Este foi desenvolvido durante o workshop em modelo de Hands On, utilizando Apollo Server, Node e mongoose, bem como um banco de dados MongoDB rodando localmente com docker.
 
 ## Referências:
 

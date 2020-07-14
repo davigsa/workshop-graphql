@@ -30,10 +30,11 @@ app.get("/users/:id", async (req, res) => {
 });
 
 app.post("/users", async (req, res) => {
-  const { name, email } = req.body;
+  const { firstName, lastName, email } = req.body;
   try {
     await User.create({
-      name,
+      firstName,
+      lastName,
       email,
     });
     return res.json({ message: "User created!" });
@@ -54,12 +55,13 @@ app.delete("/users/:id", async (req, res) => {
 });
 
 app.patch("/users/:id", async (req, res) => {
-  const { name, email } = req.body;
+  const { firstName, lastName, email } = req.body;
   const { id } = req.params;
 
   try {
     await User.findByIdAndUpdate(id, {
-      name,
+      firstName,
+      lastName,
       email,
     });
     return res.json({ message: `User ${id} was updated` });
