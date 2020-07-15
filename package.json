@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "graphql": "node test-graphql/index.js",
-    "rest": "node test-rest/index.js"
+    "graphql": "nodemon test-graphql/index.js",
+    "rest": "nodemon test-rest/index.js",
+    "backup": "nodemon example/graphql.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "express": "^4.17.1",
     "graphql": "^15.1.0",
     "mongoose": "^5.9.23"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
